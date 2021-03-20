@@ -76,7 +76,7 @@ Group By G.Name
 select g.Name, count(a.Id) as Authors
 from Author a
 	join Grade g
-	on a.GenderId = g.Id
+	on a.GradeId = g.Id
 group by g.Name
 
 --14. What is the title of the poem that has the most words?
