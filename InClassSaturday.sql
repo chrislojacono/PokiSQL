@@ -141,3 +141,18 @@ from PoemEmotion PE
 Where e.Name = 'Joy'
 group by G.Name, E.Name
 order by Count desc
+
+--20.Which gender has the least number of poems with an emotion of fear?
+select top 1 G.Name, Count(*) as [Count]
+from PoemEmotion PE
+	Join Emotion E
+	on E.Id = PE.EmotionId
+	join Poem P
+	on P.Id = PE.PoemId
+	join Author A
+	on A.Id = P.AuthorId
+	join Gender G
+	on G.Id = A.GenderId
+Where e.Name = 'Fear'
+group by G.Name
+order by Count asc
