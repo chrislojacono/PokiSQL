@@ -117,3 +117,13 @@ where NOT EXISTS
    FROM PoemEmotion PE
    WHERE P.Id = PE.PoemId);
 	
+--18.Which emotion is associated with the least number of poems?
+select Top 1 E.Name, Count(*) as Count
+from PoemEmotion PE
+	Join Emotion E
+	on E.Id = PE.EmotionId
+	join Poem P
+	on P.Id = PE.PoemId
+group by E.Name
+order by Count asc
+
