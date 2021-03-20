@@ -39,3 +39,10 @@ from Poem P
 select P.Title, P.CharCount
 from Poem P
 order by P.CharCount asc
+
+--9. How many authors are in the third grade?
+select Count(*)
+from Author A
+	join Grade G
+	on A.GradeId = G.Id
+where G.Id = 3
