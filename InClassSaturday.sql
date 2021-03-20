@@ -62,3 +62,12 @@ from Poem P
 	join Grade G
 	on G.Id = A.GradeId
 Where G.Id = 4
+
+--12.How many poems are there per grade?
+select G.Name, count(*) as [Count]
+from Poem P
+	join Author A
+	on A.Id = P.AuthorId
+	join Grade G
+	on G.Id = A.GradeId
+Group By G.Name
