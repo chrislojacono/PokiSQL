@@ -91,3 +91,21 @@ from Poem P
 	on A.Id = P.AuthorId
 group by A.Id, A.Name
 order by count desc
+
+--16. How many poems have an emotion of sadness?
+select E.Name, Count(*) as Count
+from PoemEmotion PE
+	Join Emotion E
+	on E.Id = PE.EmotionId
+	join Poem P
+	on P.Id = PE.PoemId
+group by E.Name
+
+select Count(*) as Count
+from PoemEmotion PE
+	Join Emotion E
+	on E.Id = PE.EmotionId
+	join Poem P
+	on P.Id = PE.PoemId
+where E.Name = 'Sadness'
+	
