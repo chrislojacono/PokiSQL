@@ -46,3 +46,19 @@ from Author A
 	join Grade G
 	on A.GradeId = G.Id
 where G.Id = 3
+
+--10. How many authors are in the first, second or third grades?
+select Count(*)
+from Author A
+	join Grade G
+	on A.GradeId = G.Id
+where G.Id = 3 or G.Id = 4 or G.Id = 5
+
+--11. What is the total number of poems written by fourth graders?
+select count(*)
+from Poem P
+	join Author A
+	on A.Id = P.AuthorId
+	join Grade G
+	on G.Id = A.GradeId
+Where G.Id = 4
