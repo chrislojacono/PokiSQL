@@ -108,4 +108,12 @@ from PoemEmotion PE
 	join Poem P
 	on P.Id = PE.PoemId
 where E.Name = 'Sadness'
+
+--17. How many poems are not associated with any emotion? NOT SURE ABOUT THIS ONE
+select P.*
+from Poem P
+where NOT EXISTS
+  (SELECT * 
+   FROM PoemEmotion PE
+   WHERE P.Id = PE.PoemId);
 	
