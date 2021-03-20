@@ -71,3 +71,25 @@ from Poem P
 	join Grade G
 	on G.Id = A.GradeId
 Group By G.Name
+
+--13. How many authors are in each grade? (Order your results by grade starting with 1st Grade)
+select G.Name, sum(A.Id) as [Count]
+from Poem P
+	join Author A
+	on A.Id = P.AuthorId
+	join Grade G
+	on G.Id = A.GradeId
+Group By G.Name
+
+--14. What is the title of the poem that has the most words?
+select P.Title, P.WordCount
+from Poem P
+order by P.WordCount desc
+
+--15. Which author(s) have the most poems? (Remember authors can have the same name.)
+select A.Id, a.Name, count(p.Id) as count
+from Poem P
+	join Author A
+	on A.Id = P.AuthorId
+group by A.Id, A.Name
+order by count desc
