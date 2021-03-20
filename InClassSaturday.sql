@@ -127,3 +127,17 @@ from PoemEmotion PE
 group by E.Name
 order by Count asc
 
+--19. Which grade has the largest number of poems with an emotion of joy?
+select  E.Name, G.Name, Count(*) as [Count]
+from PoemEmotion PE
+	Join Emotion E
+	on E.Id = PE.EmotionId
+	join Poem P
+	on P.Id = PE.PoemId
+	join Author A
+	on A.Id = P.AuthorId
+	join Grade G
+	on G.Id = A.GradeId
+Where e.Name = 'Joy'
+group by G.Name, E.Name
+order by Count desc
